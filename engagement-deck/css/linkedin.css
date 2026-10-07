@@ -1,0 +1,64 @@
+/* Viewing copy of the deck: photo slots hidden and their layouts rebalanced
+   (from tools/linkedin-deck.css). Presenter notes are removed from this copy. */
+
+/* ---- Logo lockup: one line, "AI Lab" ---------------------------------------- */
+.brandpill {
+  padding-right: 30px;
+}
+.brandpill__name {
+  margin-top: 0;
+  font-size: 30px;
+}
+
+/* ---- Photo slots: hidden ----------------------------------------------------- */
+.slide .photo[data-photo],
+.s-room__photowrap,
+.s-net__today {
+  display: none !important;
+}
+
+/* ---- ...and the layouts they leave, rebalanced ------------------------------- */
+/* 8 · copy centred against the running order card */
+.s-room__copy {
+  top: 318px;
+}
+/* 14 · the session-plan card centred against the five training sessions */
+.s-train__side {
+  top: 320px;
+}
+/* 15 · copy centred against the scorecard */
+.s-pilot__copy {
+  top: 300px;
+}
+/* 16 · copy and check card centred against the network */
+.s-real__copy {
+  top: 262px;
+}
+/* 18 · copy centred against the orbit */
+.s-again__copy {
+  top: 206px;
+}
+/* 19 · copy centred against the network diagram (the client figures card is gone) */
+.s-net__copy {
+  top: 344px;
+}
+/* 24 · the five beats and the headline centred, with Bit beside the headline */
+.s-outcome__copy {
+  left: 543px;
+}
+.s-outcome__bit {
+  left: 1478px;
+  top: 770px;
+}
+/* 25 · the pink Bit takes the photo's place, between the copy and the ribbon */
+.s-close__bit1 {
+  --size: 270px !important;
+  left: 46px;
+  top: 150px;
+}
+
+/* ---- No presenter notes in this copy ---- */
+#btn-notes,
+.notes {
+  display: none !important;
+}

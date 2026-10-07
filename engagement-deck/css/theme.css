@@ -1,0 +1,345 @@
+/* ==========================================================================
+   Sticky-note style: the hand-written layer.
+   Loaded after the base styles as css/theme.css.
+   Warm paper, ink type, teal as the only accent, Inter + IBM Plex Mono,
+   sticky-note colours for fills, calm cards with hairlines. No italics.
+   ========================================================================== */
+:root {
+  --do-paper: #f3efe7;
+  --do-card: #fbf9f5;
+  --do-ink: #161513;
+  --do-note-ink: #23201b;
+  --do-body: #5e594f;
+  --do-muted: #8a847a;
+  --do-line: #dcd5c8;
+  --do-card-line: #e2dcd1;
+  --do-teal: #0e9c8e;
+  --do-teal-deep: #0b7f74;
+  --do-tint: #dcefeb;
+  --do-yellow: #f7d84a;
+  --do-pink: #ffb8c9;
+  --do-blue: #a9d8f2;
+  --do-green: #bde8a6;
+  --do-orange: #ffc98e;
+  --do-sans: "Inter", "Helvetica Neue", Arial, sans-serif;
+  --do-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  --do-card-shadow: 0 1px 0 #fff inset, 0 30px 60px -30px rgba(40, 30, 20, 0.25);
+  --do-note-shadow: 0 2px 0 rgba(0, 0, 0, 0.04), 0 26px 34px -20px rgba(60, 40, 10, 0.45);
+  --letterbox: var(--do-paper);
+  --ribbon-colour: var(--do-tint);
+  --ribbon-dash: var(--do-teal);
+}
+*,
+*::before,
+*::after {
+  font-style: normal !important;
+}
+html,
+body {
+  background: var(--do-paper) !important;
+}
+body {
+  color: var(--do-ink);
+  font-family: var(--do-sans);
+}
+.stage,
+.stage[data-bg] {
+  background: var(--do-paper) !important;
+  color: var(--do-ink);
+}
+.slide {
+  color: var(--do-ink);
+}
+
+/* ---- Type ------------------------------------------------------------------ */
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--do-sans);
+  font-weight: 700;
+  text-transform: none;
+  letter-spacing: -0.035em;
+  color: var(--do-ink);
+}
+.lime,
+.on-light .lime {
+  color: var(--do-teal) !important;
+}
+.eyebrow,
+.on-light .eyebrow {
+  font-family: var(--do-mono) !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  color: var(--do-teal-deep) !important;
+}
+.lead,
+.on-light .lead {
+  color: var(--do-body);
+}
+
+/* ---- Ribbon: a calm teal path with a dashed centre line ------------------------- */
+.ribbon path {
+  stroke: var(--do-tint) !important;
+}
+.ribbon .ribbon__dash {
+  stroke: var(--do-teal) !important;
+  stroke-width: 3px;
+  opacity: 0.55;
+}
+
+/* ---- Chrome: "AI Lab" label (no logo), stages, counter, progress ----------------- */
+.brandpill {
+  background: transparent;
+  box-shadow: none;
+  padding: 0 8px 0 6px;
+  gap: 18px;
+  color: var(--do-ink);
+}
+.brandpill__name {
+  font-family: var(--do-mono) !important;
+  font-weight: 500 !important;
+  font-size: 19px !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  color: var(--do-teal-deep);
+  margin: 0 !important;
+}
+.sectionnav {
+  background: var(--do-card);
+  border: 1px solid var(--do-card-line);
+  box-shadow: 0 18px 40px -28px rgba(40, 30, 20, 0.35);
+}
+.sectionnav__label {
+  color: var(--do-teal-deep);
+  border-right: 1px solid var(--do-card-line);
+  font-family: var(--do-mono);
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 0.08em;
+}
+.sectionnav button {
+  color: var(--do-muted);
+  font-family: var(--do-mono);
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 0.06em;
+}
+.sectionnav button.is-past {
+  color: var(--do-teal-deep);
+}
+.sectionnav button[aria-current="step"] {
+  background: var(--do-yellow);
+  color: var(--do-note-ink);
+}
+.sectionnav button:hover {
+  background: var(--do-tint);
+  color: var(--do-ink);
+}
+.sectionnav__arrow {
+  color: var(--do-line);
+}
+.actionpill {
+  background: var(--do-card);
+  border: 1px solid var(--do-card-line);
+  box-shadow: 0 18px 40px -28px rgba(40, 30, 20, 0.35);
+}
+.counter {
+  font-family: var(--do-mono);
+  font-weight: 500;
+  font-size: 20px;
+  letter-spacing: 0.08em;
+  color: var(--do-ink);
+}
+.counter b {
+  font-weight: 500;
+  color: var(--do-muted);
+}
+.roundbtn {
+  background: var(--do-ink);
+  color: var(--do-card);
+}
+.roundbtn--lime {
+  background: var(--do-teal);
+  color: #fff;
+}
+.progress button,
+.stage[data-bg] .progress button {
+  background: var(--do-line) !important;
+}
+.progress button::after,
+.stage[data-bg] .progress button::after {
+  background: var(--do-teal) !important;
+}
+
+/* ---- Teal is the only accent: rose and amber labels become ink and muted -------- */
+:root {
+  --pink-600: var(--do-note-ink);
+  --warn: var(--do-muted);
+}
+
+/* ---- Tags, labels and small caps: IBM Plex Mono --------------------------------- */
+.tag {
+  font-family: var(--do-mono);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  border-radius: 10px;
+}
+.minilabel,
+.minilabel--pink {
+  font-family: var(--do-mono);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--do-teal-deep);
+}
+
+/* ---- Tickers: a calm tint band with mono type ----------------------------------- */
+.ticker,
+.ticker--navy {
+  background: var(--do-tint) !important;
+  color: var(--do-teal-deep) !important;
+  font-family: var(--do-mono);
+  font-weight: 500;
+  font-size: 20px;
+  letter-spacing: 0.1em;
+}
+.ticker svg,
+.ticker--navy svg {
+  color: var(--do-teal) !important;
+}
+
+/* ---- Sticky notes ------------------------------------------------------------------ */
+/* 1 · the instructor prompt is a yellow note */
+.s-hero__say {
+  background: var(--do-yellow) !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: var(--do-note-shadow) !important;
+  rotate: -3deg;
+  overflow: hidden;
+}
+.s-hero__say::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 16%;
+  background: rgba(0, 0, 0, 0.035);
+}
+.s-hero__say .minilabel {
+  position: relative;
+  color: rgba(35, 32, 27, 0.6);
+}
+.s-hero__q {
+  position: relative;
+  color: var(--do-note-ink);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+/* 2 · the "Prototype" stamp is a pink note */
+.s-proto__sticker {
+  border-radius: 0 !important;
+  background: var(--do-pink) !important;
+  color: var(--do-note-ink) !important;
+  box-shadow: var(--do-note-shadow) !important;
+  rotate: 5deg;
+  font-family: var(--do-sans) !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.02em;
+  overflow: hidden;
+}
+.s-proto__sticker::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 11%;
+  background: rgba(0, 0, 0, 0.035);
+}
+.s-proto__sticker small {
+  font-family: var(--do-mono);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ---- 3 · the headline clears the two column labels ---------------------------------- */
+.s-with__head h2 {
+  font-size: 92px;
+}
+.s-with__col {
+  top: 284px;
+}
+
+/* ---- 3D "screens": a deep teal-ink night instead of the old indigo ----------------- */
+.s-worlds__view {
+  background: radial-gradient(120% 90% at 50% 20%, #24403c, #161513) !important;
+}
+
+/* ---- Indicative / to confirm: a quiet outlined tag ------------------------------------ */
+.tag--indicative,
+.on-light .tag--indicative {
+  background: transparent !important;
+  color: var(--do-body) !important;
+  box-shadow: inset 0 0 0 1.5px var(--do-line) !important;
+}
+.livebadge i {
+  background: var(--do-teal) !important;
+}
+
+/* ---- Viewing controls (hidden in the GIFs): light card pills like the stage nav ------- */
+.utilpill,
+.stage[data-bg] .utilpill {
+  background: var(--do-card) !important;
+  border: 1px solid var(--do-card-line) !important;
+  box-shadow: 0 18px 40px -28px rgba(40, 30, 20, 0.35);
+  backdrop-filter: none;
+  color: var(--do-ink);
+}
+.utilbtn {
+  font-family: var(--do-mono);
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  color: var(--do-muted) !important;
+}
+.utilbtn:hover {
+  background: var(--do-tint) !important;
+  color: var(--do-ink) !important;
+}
+.utilbtn[aria-pressed="true"] {
+  background: var(--do-yellow) !important;
+  color: var(--do-note-ink) !important;
+}
+.navbtn {
+  background: var(--do-card);
+  color: var(--do-ink);
+  box-shadow: 0 0 0 1px var(--do-card-line), 0 18px 40px -28px rgba(40, 30, 20, 0.35);
+}
+.navbtn--next {
+  background: var(--do-ink);
+  color: var(--do-card);
+}
+.buildhint,
+.stage[data-bg] .buildhint {
+  font-family: var(--do-mono);
+  font-weight: 500;
+  color: var(--do-teal-deep) !important;
+}
+
+/* ---- "Press → to build" hint: a light pill, teal dots for the steps already shown ---- */
+.buildhint,
+.stage[data-bg] .buildhint {
+  background: var(--do-card) !important;
+  border: 1px solid var(--do-card-line) !important;
+  box-shadow: 0 18px 40px -28px rgba(40, 30, 20, 0.35);
+}
+.buildhint__dots i {
+  background: var(--do-line) !important;
+}
+.buildhint__dots i.is-done {
+  background: var(--do-teal) !important;
+}

@@ -1,0 +1,239 @@
+@font-face { font-family: "Inter"; src: url("../assets/fonts/inter.woff2") format("woff2"); font-weight: 100 900; font-style: normal; font-display: block; }
+@font-face { font-family: "IBM Plex Mono"; src: url("../assets/fonts/plexmono-500.woff2") format("woff2"); font-weight: 400 700; font-style: normal; font-display: block; }
+/* Copied from ai-builders-lab/css/tokens.css so the deck and the product share one design system. */
+/* ==========================================================================
+   AI Lab — design tokens
+   Palette sampled from the supplied the organisation’s website captures
+   (navy #0b012b, lime #dbe751, teal #49a7a9, pink #efabcd).
+   Fonts are bundled locally so the product works behind school firewalls.
+   ========================================================================== */
+
+@font-face {
+  font-family: "Lilita One";
+  src: url("../assets/fonts/lilita-one-latin.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Lexend";
+  src: url("../assets/fonts/lexend-latin-var.woff2") format("woff2");
+  font-weight: 300 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("../assets/fonts/jetbrains-mono-latin-var.woff2") format("woff2");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* ---- Brand palette ---------------------------------------------------- */
+  --navy-950: #161513;
+  --navy-900: #1E1C19;
+  --navy-850: #23201B;
+  --navy-800: #2E2B26;
+  --navy-700: #3A362F;
+  --navy-600: #5E594F;
+  --navy-400: #8A847A;
+
+  --lime-200: #EEF7F5;
+  --lime-300: #DCEFEB;
+  --lime-400: #0E9C8E;
+  --lime-500: #0B7F74;
+  --lime-600: #0B7F74;
+  --lime-700: #08605A;
+
+  --teal-100: #DCEFEB;
+  --teal-200: #BFE3DD;
+  --teal-300: #6CC5B9;
+  --teal-400: #0E9C8E;
+  --teal-500: #0B7F74;
+  --teal-600: #0B7F74;
+  --teal-700: #08605A;
+
+  --pink-200: #FFE5EC;
+  --pink-300: #FFD0DC;
+  --pink-400: #FFB8C9;
+  --pink-500: #F59DB4;
+  --pink-600: #A8435F;
+
+  --orange-400: #FFC98E;
+  --orange-500: #F7C28A;
+  --blue-400: #4F8DB5;
+
+  --cream-50: #FBF9F5;
+  --cream-100: #F3EFE7;
+  --cream-200: #ECE6DB;
+  --cream-300: #DCD5C8;
+  --white: #FBF9F5;
+
+  /* ---- Semantic tokens (brief §31) ------------------------------------- */
+  --cx-primary: var(--lime-400);
+  --cx-secondary: var(--teal-400);
+  --cx-accent: var(--pink-400);
+  --cx-background: var(--navy-950);
+  --cx-surface: var(--white);
+  --cx-text: var(--navy-950);
+  --cx-muted: #5E594F;
+  --cx-border: #E2DCD1;
+
+  /* Contextual (re-assigned by .on-navy / .on-teal / .on-cream) */
+  --fg: var(--cx-text);
+  --fg-muted: var(--cx-muted);
+  --line: var(--cx-border);
+  --bg: var(--cream-100);
+  --card: var(--white);
+  --heading: var(--navy-950);
+  --accent-text: var(--teal-600);
+
+  /* Authorship colours used across Build Mode */
+  --author-starter: #8A847A;
+  --author-you: var(--lime-400);
+  --author-ai: var(--pink-400);
+
+  /* Status */
+  --ok: #0B7F74;
+  --warn: #9A7414;
+  --bad: #A8435F;
+
+  /* ---- Typography ------------------------------------------------------ */
+  --font-display: "Inter", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Inter", "Helvetica Neue", Arial, sans-serif;
+  --font-code: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+
+  --fs-hero: clamp(3.6rem, 1.4rem + 8.6vw, 10.5rem);
+  --fs-d1: clamp(3rem, 1.4rem + 5.8vw, 7.25rem);
+  --fs-d2: clamp(2.35rem, 1.3rem + 3.8vw, 4.9rem);
+  --fs-d3: clamp(1.85rem, 1.25rem + 2.1vw, 3.1rem);
+  --fs-d4: clamp(1.4rem, 1.15rem + 0.95vw, 2.05rem);
+  --fs-d5: clamp(1.15rem, 1.05rem + 0.4vw, 1.4rem);
+  --fs-lead: clamp(1.12rem, 1rem + 0.45vw, 1.38rem);
+  --fs-body: 1.0625rem;
+  --fs-small: 0.9375rem;
+  --fs-tiny: 0.8125rem;
+  --fs-micro: 0.72rem;
+
+  --lh-tight: 1.02;
+  --lh-snug: 1.18;
+  --lh-body: 1.55;
+
+  /* ---- Space ----------------------------------------------------------- */
+  --s-1: 0.25rem;
+  --s-2: 0.5rem;
+  --s-3: 0.75rem;
+  --s-4: 1rem;
+  --s-5: 1.5rem;
+  --s-6: 2rem;
+  --s-7: 3rem;
+  --s-8: 4rem;
+  --s-9: 6rem;
+  --s-10: 8rem;
+  --gutter: clamp(1rem, 0.4rem + 2.6vw, 3rem);
+  --section-y: clamp(4rem, 2.6rem + 6vw, 9rem);
+  --maxw: 1320px;
+  --maxw-text: 64ch;
+
+  /* ---- Shape ----------------------------------------------------------- */
+  --r-xs: 8px;
+  --r-sm: 12px;
+  --r-md: 18px;
+  --r-lg: 28px;
+  --r-xl: 40px;
+  --r-pill: 999px;
+  --frame: 7px; /* white photo frame, as on the CX site */
+
+  /* ---- Elevation ------------------------------------------------------- */
+  --shadow-sm: 0 1px 2px rgba(40, 30, 20, 0.06);
+  --shadow-md: 0 1px 0 #fff inset, 0 18px 40px -26px rgba(40, 30, 20, 0.3);
+  --shadow-lg: 0 1px 0 #fff inset, 0 30px 60px -30px rgba(40, 30, 20, 0.25);
+  --shadow-navy: 0 30px 60px -30px rgba(40, 30, 20, 0.25);
+  --shadow-press: 0 0 0 0 transparent;
+
+  /* ---- Motion ---------------------------------------------------------- */
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --dur-1: 120ms;
+  --dur-2: 220ms;
+  --dur-3: 420ms;
+  --dur-4: 800ms;
+
+  --topbar-h: 84px;
+  --z-top: 50;
+  --z-menu: 60;
+  --z-tour: 80;
+  --z-modal: 90;
+  --z-toast: 100;
+}
+
+/* Colour contexts ---------------------------------------------------------- */
+.on-navy {
+  --fg: #161513;
+  --fg-muted: #5E594F;
+  --line: #DCD5C8;
+  --bg: #F3EFE7;
+  --card: #FBF9F5;
+  --heading: #161513;
+  --accent-text: #0B7F74;
+  background-color: #F3EFE7;
+  color: var(--fg);
+}
+.on-navy-2 {
+  --fg: #161513;
+  --fg-muted: #5E594F;
+  --line: #DCD5C8;
+  --bg: #F3EFE7;
+  --card: #FBF9F5;
+  --heading: #161513;
+  --accent-text: #0B7F74;
+  background-color: #F3EFE7;
+  color: var(--fg);
+}
+.on-teal {
+  --fg: #161513;
+  --fg-muted: #5E594F;
+  --line: #DCD5C8;
+  --bg: #F3EFE7;
+  --card: #FBF9F5;
+  --heading: #161513;
+  --accent-text: #0B7F74;
+  background-color: #F3EFE7;
+  color: var(--fg);
+}
+.on-cream {
+  --fg: #161513;
+  --fg-muted: #5E594F;
+  --line: #DCD5C8;
+  --bg: #F3EFE7;
+  --card: #FBF9F5;
+  --heading: #161513;
+  --accent-text: #0B7F74;
+  background-color: #F3EFE7;
+  color: var(--fg);
+}
+.on-white {
+  --fg: #161513;
+  --fg-muted: #5E594F;
+  --line: #DCD5C8;
+  --bg: #F3EFE7;
+  --card: #FBF9F5;
+  --heading: #161513;
+  --accent-text: #0B7F74;
+  background-color: #F3EFE7;
+  color: var(--fg);
+}
+.on-lime {
+  --fg: #161513;
+  --fg-muted: #5E594F;
+  --line: #DCD5C8;
+  --bg: #F3EFE7;
+  --card: #FBF9F5;
+  --heading: #161513;
+  --accent-text: #0B7F74;
+  background-color: #F3EFE7;
+  color: var(--fg);
+}
